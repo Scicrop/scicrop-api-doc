@@ -62,8 +62,7 @@ function testGET(site, acesso, res){
 function testePOST(site, acesso, res) {
 
   var site_post = 'https://'+  acesso.user + ':' + acesso.pass + '@'+ site + '/station/scicrop';
-  var api = '';
-  var entity = "{'authEntity':{'userEntity':{'email':"+ acesso.username +", 'api_id': ''}},'payloadEntity':{},responseEntity:{returnId:0}}";
+  var entity = "{'authEntity':{'userEntity':{'email':"+ acesso.username +", 'api_id': '"+acesso.api+"'}},'payloadEntity':{},responseEntity:{returnId:0}}";
 
   request.post({
     headers: {'content-type' : 'application/x-www-form-urlencoded'},
