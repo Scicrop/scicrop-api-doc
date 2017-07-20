@@ -1,17 +1,11 @@
 package com.scicrop.agroapi.tests;
 
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
-import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
-import org.bouncycastle.util.io.pem.PemWriter;
 import org.junit.Test;
 
 import com.auth0.jwt.JWT;
@@ -23,11 +17,9 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.scicrop.agroapi.commons.CryptoHelper;
 import com.scicrop.agroapi.commons.UrlHelper;
 
-import sun.misc.BASE64Encoder;
-
 public class TestJWT {
 
-	public String url      = "http://127.0.0.1:8080/scicrop-engine-web/api/v1";//"https://engine.scicrop.com/scicrop-engine-web/api/v1";
+	public String url      = "https://engine.scicrop.com/scicrop-engine-web/api/v1";
 
 	@Test
 	public void testJwt_HMAC256(){
@@ -130,33 +122,9 @@ $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 	}
 
 	@Test
-	public void keyToPem(){
-
-
-		try {
-
-			byte[] pubKeyB = CryptoHelper.getInstance().fileToByteArray(new File("/tmp/rsa/public_key.der"));
-
-			String encoded = CryptoHelper.getInstance().byteToHexstr(pubKeyB);
-			
-			
-			System.out.println(encoded);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-
-
-	}
-
-	
-
-
-	@Test
 	public void testJwtIntegration() throws Exception {
 
-		String api_id = "DCF5CB6C666041CA2C546C0FB9841F77FEB139A768EA48B5602D14836979E2F8A8B47BDE6804E4627C4DFD18FD24D5C9C1C367AC9DB59FAF5FB15514232BD474";
+		String api_id = "MYAPIID";
 		String restPath = "/status/stats";
 		String baseUrl = url + restPath;
 		PrivateKey privKey = CryptoHelper.getInstance().getRsaPrivateKey("/tmp/rsa/private_key.der");

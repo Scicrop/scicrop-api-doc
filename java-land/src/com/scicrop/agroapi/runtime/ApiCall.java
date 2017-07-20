@@ -22,19 +22,12 @@ package com.scicrop.agroapi.runtime;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.security.PrivateKey;
-import java.security.interfaces.RSAPrivateKey;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTCreationException;
-import com.scicrop.agroapi.commons.CryptoHelper;
 import com.scicrop.agroapi.commons.UrlHelper;
 
 public class ApiCall {
 
-	static String url      = "http://127.0.0.1:8080/scicrop-engine-web/api/v1";//"https://engine.scicrop.com/scicrop-engine-web/api/v1";
+	static String url      = "https://engine.scicrop.com/scicrop-engine-web/api/v1";
 	static String username = "";
 	static String password = "";
 	static String api_id   = "";
