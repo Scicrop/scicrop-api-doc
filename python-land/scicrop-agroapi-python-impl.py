@@ -19,7 +19,10 @@
 ##############################################################################
 
 import sys, requests, json
-url = 'https://engine.scicrop.com/scicrop-engine-web/api/v1'
+
+hostname = 'engine.scicrop.com'
+protocol = 'http://'
+url = protocol+hostname+'/scicrop-engine-web/api/v1'
 
 username = input("Enter your username: ")
 password = input("Enter your password: ")
@@ -32,10 +35,9 @@ rest = '/status/my';
 session = requests.Session()
 session.auth = (username, password)
 
-hostname = 'engine.scicrop.com'
 
-auth = session.post('https://' + hostname)
-response = session.get('https://' + hostname + '/scicrop-engine-web/api/v1' + rest)
+auth = session.post(protocol + hostname)
+response = session.get(protocol + hostname + '/scicrop-engine-web/api/v1' + rest)
 
 print('\n\nGET RESPONSE FOR ['+rest+'] CALL\n\n')
 print(response)
@@ -45,12 +47,9 @@ data = {"authEntity":{"userEntity":{"email":""+username+"", "api_id": ""+api_id+
 
 rest = '/station/scicrop';
 
-auth = session.post('https://' + hostname)
+headers = {'Content-type': 'application/x-www-form-urlencoded'}
+rresponse = session.post(url + rest, json.dumps(data), headers=headers)
 
-headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-rresponse = requests.post(url, data=json.dumps(data), headers=headers)
-
-
-print('\n\nPOST RESPONSE FOR ['+rest+'] CALL\n\n')
-print(response)
-print(response.content)
+print('\n\nPOST RESPONSE FOR ['+  rest + '] CALL\n\n')
+print(rresponse)
+print(rresponse.content)

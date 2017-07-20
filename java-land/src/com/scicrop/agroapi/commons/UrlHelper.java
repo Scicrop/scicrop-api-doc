@@ -91,4 +91,55 @@ public class UrlHelper {
 
 	}
 
+	
+	public String getStringFromUrlJWT(String baseUrl, String args, String token, String method) throws Exception {
+		
+		System.out.println("\n\nConnecting to ["+method+"]: "+baseUrl);
+		
+		StringBuffer response = null;
+		HttpURLConnection con = null;
+		DataOutputStream wr = null;
+		BufferedReader in = null;
+		try{
+			URL obj = new URL(baseUrl);
+			con = (HttpURLConnection) obj.openConnection();
+
+			con.setRequestProperty("Authorization", "Bearer "+token);
+			con.setRequestMethod(method);
+			con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+			con.setDoOutput(true);
+
+			if(null != args && args.length() > 0){
+				wr = new DataOutputStream(con.getOutputStream());
+				wr.writeBytes(args);
+			}
+
+			int responseCode = con.getResponseCode();
+
+			if(responseCode == 200){
+
+				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				String inputLine;
+				response = new StringBuffer();
+
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+
+			}else throw new Exception(String.valueOf(responseCode));
+
+		}catch(IOException e){
+			throw new Exception(e);
+		}finally{
+
+			if(in != null ) try { in.close(); } catch (IOException e) { throw new Exception(e); }
+			if(wr != null ) try { wr.flush(); } catch (IOException e) { throw new Exception(e); }
+			if(wr != null ) try { wr.close(); } catch (IOException e) { throw new Exception(e); }
+			if(con != null) con.disconnect();
+
+		}
+
+		return (response.toString());
+
+	}
 }

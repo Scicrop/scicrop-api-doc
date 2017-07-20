@@ -2,5 +2,14 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/java-jwt.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.8.4.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.8.4.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-compress-1.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/bcprov-jdk15on-157.jar"/>
+	<classpathentry kind="lib" path="lib/bcpkix-jdk15on-157.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
