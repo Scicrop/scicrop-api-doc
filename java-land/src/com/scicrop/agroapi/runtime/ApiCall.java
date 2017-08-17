@@ -44,10 +44,26 @@ public class ApiCall {
 		api_id = br.readLine();
 		testGET();
 		testPOST();
+		testGeneric("/station/data/hour", "POST");
+		
 		if(br != null) br.close();
 	}
 
 	
+
+	private static void testGeneric(String rest, String method) throws Exception {
+		
+		String baseUrl = url + rest;
+		String json = "{\"authEntity\":{\"userEntity\":{\"email\":\""+username+"\",\"api_id\":\""+api_id+"\"}},\"payloadEntity\":{\"stationLst\":[{\"stationId\":\"272\",\"stationDataLst\":[{\"date\":\"2017-07-06 19:00:00\"}, {\"date\":\"2017-07-06 20:00:00\"}]}]},\"actionEntityLst\":[],\"responseEntity\":{}}";
+
+		json = UrlHelper.getInstance().getStringFromUrl(baseUrl, json, username, password, method);
+		System.out.println("testPOST() RESPONSE: "+json);
+		
+		
+		
+	}
+
+
 
 	private static void testPOST() throws Exception {
 
