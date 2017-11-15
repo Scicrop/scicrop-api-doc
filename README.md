@@ -7,7 +7,7 @@ Repository for Documentation and Implementation examples of AgroAPi
 
 **PHP Implementation example:** https://github.com/Scicrop/agroapi-doc/tree/master/php-land
 
-**NodeJs Implementation example:** https://github.com/Scicrop/agroapi-doc/tree/master/node-land
+**Node.Js Implementation example:** https://github.com/Scicrop/agroapi-doc/tree/master/node-land
 
 **Python Implementation example:** https://github.com/Scicrop/agroapi-doc/tree/master/python-land
 
