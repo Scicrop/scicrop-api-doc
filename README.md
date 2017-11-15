@@ -1,4 +1,4 @@
-# Agroapi-doc by SciCrop
+# AgroAPI-doc by SciCrop®
 Repository for Documentation and Implementation examples of AgroAPi
 
 **Wiki:** https://github.com/Scicrop/agroapi-doc/wiki/AgroAPI-Documentation
