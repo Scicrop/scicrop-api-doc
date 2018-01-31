@@ -1,7 +1,7 @@
 # AgroAPI-doc by SciCrop®
 Repository for Documentation and Implementation examples of AgroAPi
 
-**Wiki:** https://github.com/Scicrop/agroapi-doc/wiki/AgroAPI-Documentation
+**Wiki:** https://github.com/Scicrop/agroapi-doc/wiki/SciCrop%C2%AE-AgroAPI-Documentation
 
 **Java Implementation example:** https://github.com/Scicrop/agroapi-doc/tree/master/java-land
 
